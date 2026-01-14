@@ -1,0 +1,86 @@
+.home{
+            display: flex;
+
+        }
+        .home h2{
+            font-size: xx-large;
+            margin-top: 10px;
+            background-color: rgba(94, 158, 247, 0.452);
+            padding: 30px;
+            margin-right: 60px;
+            margin-left: 100px;
+            padding-right: 200px;
+            border-radius: 30px;
+        }
+        .home img{
+            height: 400px;
+            width: 400px;
+            border-radius: 30px;
+            
+
+        }
+        main{
+            background: fixed;
+    
+        }
+        main{
+            background-image: url("house2.png");
+            background-size: cover;
+            background-repeat: center;
+            background-position: fixed;
+            background-attachment: fixed;
+        }
+        #index, #contact,#about,#rent{
+            background-color: rgba(248, 249, 249, 0.533);
+            border-radius: 30px;
+            margin: 30px;
+            padding: 20px;
+        }
+        header{
+            color: black;
+            background-size: cover;
+            background-color: rgb(20, 20, 94);
+            font-weight: bolder;
+
+        }
+        nav{
+            padding: 10px;
+            margin-left: 200px;
+        }
+        a{
+            text-decoration: none;
+            color: rgb(154, 151, 151);
+            font-size: larger;
+            padding-right: 30px;
+            font-weight: bolder;
+            
+        }
+        p{
+            font-size: 20px;
+        }
+        footer p{
+            font-size: medium;
+        }
+        h1{
+            font-size: xx-large;
+            color: aliceblue;
+        }
+        footer{
+            background-color: rgb(20, 20, 94);
+            color: white;
+
+        }
+        .rent{
+            display: flex;
+        }
+        .rent p{
+            margin-left: 40px;
+            margin-top: 50px;
+        }
+ 
+        .rent img{
+            height: 70%;
+            width: 90%;
+            margin-left: 40px;
+            border-radius: 30px;
+        }

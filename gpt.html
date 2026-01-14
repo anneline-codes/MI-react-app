@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dwella</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header{
+            position: sticky;
+            top: 0;
+            background-color: rgb(20,20,94);
+            color: white;
+            z-index: 1000;
+            padding: 10px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header h1{
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        nav{
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a{
+            color: #eee;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover{
+            color: rgb(94,158,247);
+        }
+
+        main{
+            position: relative;
+        }
+
+        /* Hero Section */
+        .hero{
+            background-image: url("house2.png");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero::before{
+            content:"";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+        }
+
+        .hero-content{
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero-content h2{
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p{
+            font-size: 1.2rem;
+        }
+
+        .btn{
+            padding: 12px 25px;
+            background-color: rgb(94,158,247);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .btn:hover{
+            background-color: rgb(70,130,220);
+        }
+
+        /* Section Styling */
+        section{
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        section h2{
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: rgb(20,20,94);
+        }
+
+        section p{
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        /* About Section */
+        #about div{
+            background-color: rgba(248,249,249,0.8);
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        #about h3{
+            margin-top: 20px;
+            color: rgb(94,158,247);
+        }
+
+        /* Rent Section */
+        .rent-container{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .rent-card{
+            background-color: rgba(248,249,249,0.9);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .rent-card:hover{
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .rent-card img{
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .rent-card .rent-info{
+            padding: 15px;
+        }
+
+        .rent-card .rent-info p{
+            margin-bottom: 10px;
+        }
+
+        .rent-card .rent-info .btn{
+            display: block;
+            width: fit-content;
+        }
+
+        /* Contact Section */
+        #contact{
+            background-color: rgba(94,158,247,0.1);
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        #contact a{
+            display: inline-block;
+            margin-top: 20px;
+            background-color: rgb(94,158,247);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 15px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        #contact a:hover{
+            background-color: rgb(70,130,220);
+        }
+
+        /* Footer */
+        footer{
+            background-color: rgb(20,20,94);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer p{
+            margin: 5px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px){
+            .hero-content h2{
+                font-size: 2.2rem;
+            }
+            .hero-content p{
+                font-size: 1rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dwella</h1>
+        <nav>
+            <a href="#index">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#rent">Rents</a>
+            <a href="#contact">Contact Us</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="index">
+            <div class="hero-content">
+                <h2>Welcome to Dwella! 😊</h2>
+                <p>Your trusted place to find comfortable and affordable homes for rent. Start your journey today and move in with confidence!</p>
+                <button class="btn">View Rentals</button>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div>
+                <h2>About Us</h2>
+                <p>At Dwella, we are committed to making house rentals simple, reliable, and accessible for everyone. We connect renters with quality homes while helping property owners find trustworthy tenants.</p>
+
+                <h3>Our Mission</h3>
+                <p>Our mission is to provide safe, comfortable, and affordable rental homes through a trusted and easy-to-use platform. We offer verified listings, clear information, and reliable support so our users can find a place they are proud to call home.</p>
+
+                <h3>Our Vision</h3>
+                <p>Our vision is to become a leading house rental platform known for trust, quality, and customer satisfaction. We aim to build strong communities by making housing accessible and improving the rental experience for both tenants and property owners.</p>
+            </div>
+        </section>
+
+        <!-- Rent Section -->
+        <section id="rent">
+            <h2>Available Rents 🏘️</h2>
+            <div class="rent-container">
+                <div class="rent-card">
+                    <img src="house1.png" alt="house1">
+                    <div class="rent-info">
+                        <p>Cozy 2-bedroom home with modern kitchen and bright living spaces.</p>
+                        <button class="btn">View Details</button>
+                    </div>
+                </div>
+
+                <div class="rent-card">
+                    <img src="house2.png" alt="house2">
+                    <div class="rent-info">
+                        <p>Spacious family house near schools, shops, and public transport.</p>
+                        <button class="btn">View Details</button>
+                    </div>
+                </div>
+
+                <div class="rent-card">
+                    <img src="house3.png" alt="house3">
+                    <div class="rent-info">
+                        <p>Stylish apartment with open layout and contemporary finishes.</p>
+                        <button class="btn">View Details</button>
+                    </div>
+                </div>
+
+                <div class="rent-card">
+                    <img src="house4.png" alt="house4">
+                    <div class="rent-info">
+                        <p>Comfortable 3-bedroom rental with garden and parking space.</p>
+                        <button class="btn">View Details</button>
+                    </div>
+                </div>
+
+                <div class="rent-card">
+                    <img src="house5.png" alt="house5">
+                    <div class="rent-info">
+                        <p>Elegant home in a quiet neighborhood, perfect for families or professionals.</p>
+                        <button class="btn">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Reach out to us for inquiries or booking your next home!</p>
+            <a href="login.html">Login</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Instagram: Dwella-official</p>
+        <p>Facebook: Dwella-official</p>
+        <p>Phone: +250 788 459 345</p>
+        <p>Email: dwellarenting@gmail.com</p>
+    </footer>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import React, { useState, useEffect } from 'react';
+import { Leaf, Brain, Wifi, Recycle, TrendingUp, MapPin, Bell, ChevronRight, Menu, X, Zap, Lock, Wind } from 'lucide-react';
+
+export default function EcoSenseWebsite() {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const features = [
+    {
+      icon: <Brain className="w-8 h-8" />,
+      title: "AI-Powered Detection",
+      description: "Advanced computer vision classifies waste with 85%+ accuracy in real-time",
+      gradient: "from-purple-500 to-pink-500"
+    },
+    {
+      icon: <Wifi className="w-8 h-8" />,
+      title: "IoT Smart E-Bins",
+      description: "Real-time monitoring with auto-locking when full and solar-powered operation",
+      gradient: "from-blue-500 to-cyan-500"
+    },
+    {
+      icon: <TrendingUp className="w-8 h-8" />,
+      title: "Route Optimization",
+      description: "GPS tracking and AI algorithms reduce fuel consumption by 40%",
+      gradient: "from-green-500 to-emerald-500"
+    },
+    {
+      icon: <Recycle className="w-8 h-8" />,
+      title: "Circular Economy",
+      description: "Convert organic waste into compost and biogas electricity for communities",
+      gradient: "from-orange-500 to-red-500"
+    }
+  ];
+
+  const stats = [
+    { number: "247", label: "Smart E-Bins", suffix: "+" },
+    { number: "85", label: "AI Accuracy", suffix: "%" },
+    { number: "40", label: "Fuel Saved", suffix: "%" },
+    { number: "60", label: "kWh Daily", suffix: "" }
+  ];
+
+  const uniqueFeatures = [
+    {
+      icon: <Lock className="w-6 h-6" />,
+      title: "Auto-Lock System",
+      description: "Bins lock when full, only staff can unlock via app"
+    },
+    {
+      icon: <Zap className="w-6 h-6" />,
+      title: "Solar Tracking",
+      description: "Panels auto-tilt for maximum charging efficiency"
+    },
+    {
+      icon: <Wind className="w-6 h-6" />,
+      title: "Air Quality Monitor",
+      description: "Detects odor, methane, and temperature in real-time"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950 text-white">
+      {/* Navigation */}
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-900/95 backdrop-blur-lg shadow-2xl' : 'bg-transparent'}`}>
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3 group cursor-pointer">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition-opacity"></div>
+                <Leaf className="w-10 h-10 text-emerald-400 relative animate-pulse" />
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+                  EcoSense
+                </h1>
+                <p className="text-xs text-slate-400">Rwanda</p>
+              </div>
+            </div>
+
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center gap-8">
+              {['Home', 'Features', 'Technology', 'Impact'].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => setActiveSection(item.toLowerCase())}
+                  className="text-slate-300 hover:text-emerald-400 transition-colors relative group"
+                >
+                  {item}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-400 to-cyan-400 group-hover:w-full transition-all duration-300"></span>
+                </button>
+              ))}
+              <button className="px-6 py-2.5 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full font-semibold hover:shadow-lg hover:shadow-emerald-500/50 transition-all duration-300 hover:scale-105">
+                Get Started
+              </button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden text-white"
+            >
+              {mobileMenuOpen ? <X /> : <Menu />}
+            </button>
+          </div>
+
+          {/* Mobile Menu */}
+          {mobileMenuOpen && (
+            <div className="md:hidden mt-4 pb-4 space-y-4 animate-in fade-in slide-in-from-top">
+              {['Home', 'Features', 'Technology', 'Impact'].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => {
+                    setActiveSection(item.toLowerCase());
+                    setMobileMenuOpen(false);
+                  }}
+                  className="block w-full text-left text-slate-300 hover:text-emerald-400 transition-colors py-2"
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 px-6 relative overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl -top-48 -left-48 animate-pulse"></div>
+          <div className="absolute w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl -bottom-48 -right-48 animate-pulse delay-1000"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto relative">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <div className="inline-block">
+                <span className="px-4 py-2 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-emerald-400 text-sm font-semibold backdrop-blur-sm">
+                  🌍 Leading Africa's Smart Waste Revolution
+                </span>
+              </div>
+              
+              <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+                Smart Sensing for a{' '}
+                <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent animate-gradient">
+                  Cleaner, Greener
+                </span>{' '}
+                World
+              </h1>
+              
+              <p className="text-xl text-slate-300 leading-relaxed">
+                AI-powered waste management ecosystem transforming Rwanda's environmental future through intelligent automation, IoT sensors, and circular economy principles.
+              </p>
+
+              <div className="flex flex-wrap gap-4">
+                <button className="group px-8 py-4 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-emerald-500/50 transition-all duration-300 hover:scale-105 flex items-center gap-2">
+                  Explore Platform
+                  <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+                <button className="px-8 py-4 border-2 border-emerald-500/50 rounded-full font-bold text-lg hover:bg-emerald-500/10 transition-all duration-300 backdrop-blur-sm">
+                  Watch Demo
+                </button>
+              </div>
+
+              {/* Stats Row */}
+              <div className="grid grid-cols-2 gap-4 pt-8">
+                {stats.slice(0, 2).map((stat, idx) => (
+                  <div key={idx} className="bg-white/5 backdrop-blur-md rounded-2xl p-4 border border-white/10 hover:border-emerald-500/50 transition-all">
+                    <div className="text-3xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+                      {stat.number}{stat.suffix}
+                    </div>
+                    <div className="text-slate-400 text-sm">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* 3D Visualization Placeholder */}
+            <div className="relative">
+              <div className="relative bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 rounded-3xl p-8 backdrop-blur-xl border border-white/10">
+                <div className="aspect-square bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl flex items-center justify-center relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/10 to-cyan-500/10"></div>
+                  <div className="relative z-10 text-center space-y-4">
+                    <Recycle className="w-24 h-24 mx-auto text-emerald-400 animate-spin-slow" />
+                    <div className="text-2xl font-bold">Smart E-Bin</div>
+                    <div className="text-slate-400">AI-Powered System</div>
+                  </div>
+                  
+                  {/* Floating Elements */}
+                  <div className="absolute top-8 right-8 bg-emerald-500/20 backdrop-blur-md rounded-xl p-3 border border-emerald-500/30 animate-float">
+                    <Bell className="w-6 h-6 text-emerald-400" />
+                  </div>
+                  <div className="absolute bottom-8 left-8 bg-cyan-500/20 backdrop-blur-md rounded-xl p-3 border border-cyan-500/30 animate-float-delayed">
+                    <MapPin className="w-6 h-6 text-cyan-400" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 px-6 relative">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-4xl lg:text-5xl font-bold">
+              Revolutionary{' '}
+              <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+                Features
+              </span>
+            </h2>
+            <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+              Cutting-edge technology powering Rwanda's sustainable future
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {features.map((feature, idx) => (
+              <div
+                key={idx}
+                className="group bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-emerald-500/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/20"
+              >
+                <div className={`w-16 h-16 bg-gradient-to-br ${feature.gradient} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
+                <p className="text-slate-400">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Unique Features */}
+      <section className="py-20 px-6 bg-gradient-to-b from-transparent to-slate-900/50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+              What Makes Us{' '}
+              <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+                Unique
+              </span>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {uniqueFeatures.map((feature, idx) => (
+              <div
+                key={idx}
+                className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10 hover:border-emerald-500/50 transition-all duration-300"
+              >
+                <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-cyan-500 rounded-xl flex items-center justify-center mb-4">
+                  {feature.icon}
+                </div>
+                <h3 className="text-2xl font-bold mb-3">{feature.title}</h3>
+                <p className="text-slate-300">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Impact Section */}
+      <section className="py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-gradient-to-br from-emerald-500/10 to-cyan-500/10 rounded-3xl p-12 backdrop-blur-xl border border-white/10">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <h2 className="text-4xl font-bold">
+                  Creating Real{' '}
+                  <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+                    Impact
+                  </span>
+                </h2>
+                <p className="text-lg text-slate-300">
+                  EcoSense converts waste into electricity through anaerobic digesters, generating 40-60 kWh daily—enough to power 8-10 homes or 150-200 street lights.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-emerald-500/20 rounded-xl flex items-center justify-center">
+                      <Zap className="w-6 h-6 text-emerald-400" />
+                    </div>
+                    <div>
+                      <div className="font-bold">Renewable Energy</div>
+                      <div className="text-sm text-slate-400">Continuous power from organic waste</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-cyan-500/20 rounded-xl flex items-center justify-center">
+                      <Recycle className="w-6 h-6 text-cyan-400" />
+                    </div>
+                    <div>
+                      <div className="font-bold">Circular Economy</div>
+                      <div className="text-sm text-slate-400">Compost marketplace for farmers</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-6">
+                {stats.map((stat, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-emerald-500/50 transition-all"
+                  >
+                    <div className="text-4xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent mb-2">
+                      {stat.number}{stat.suffix}
+                    </div>
+                    <div className="text-slate-400">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-6">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <h2 className="text-4xl lg:text-5xl font-bold">
+            Ready to Transform{' '}
+            <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+              Waste Management?
+            </span>
+          </h2>
+          <p className="text-xl text-slate-300">
+            Join Rwanda's smart waste revolution and be part of a cleaner, greener future
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <button className="px-10 py-4 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-emerald-500/50 transition-all duration-300 hover:scale-105">
+              Start Your Journey
+            </button>
+            <button className="px-10 py-4 border-2 border-emerald-500/50 rounded-full font-bold text-lg hover:bg-emerald-500/10 transition-all duration-300 backdrop-blur-sm">
+              Contact Us
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-12 px-6 border-t border-white/10">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
+            <div className="space-y-4">
+              <div className="flex items-center gap-2">
+                <Leaf className="w-8 h-8 text-emerald-400" />
+                <span className="text-xl font-bold">EcoSense</span>
+              </div>
+              <p className="text-slate-400">
+                Smart Sensing for a cleaner, greener world
+              </p>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Product</h4>
+              <div className="space-y-2 text-slate-400">
+                <div>Features</div>
+                <div>Technology</div>
+                <div>Pricing</div>
+              </div>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Company</h4>
+              <div className="space-y-2 text-slate-400">
+                <div>About</div>
+                <div>Team</div>
+                <div>Careers</div>
+              </div>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">Connect</h4>
+              <div className="space-y-2 text-slate-400">
+                <div>Contact</div>
+                <div>Support</div>
+                <div>Partners</div>
+              </div>
+            </div>
+          </div>
+          <div className="pt-8 border-t border-white/10 text-center text-slate-400">
+            <p>© 2025 EcoSense Rwanda. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+
+      <style jsx>{`
+        @keyframes gradient {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+        .animate-gradient {
+          background-size: 200% 200%;
+          animation: gradient 3s ease infinite;
+        }
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-20px); }
+        }
+        .animate-float {
+          animation: float 3s ease-in-out infinite;
+        }
+        .animate-float-delayed {
+          animation: float 3s ease-in-out infinite 1.5s;
+        }
+        @keyframes spin-slow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+          animation: spin-slow 20s linear infinite;
+        }
+      `}</style>
+    </div>
+  );
+}
