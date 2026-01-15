@@ -5,53 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dwella</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         header{
-            background-color: rgb(14, 22, 112);
+            background-color: rgb(2, 2, 49); */
             color: white;
+            position: sticky;
+            padding-bottom: 20px;
+
         }
         nav{
-            margin-left: 200px;
-            padding: 5px;
+            margin-left: 500px;
+            padding: 10px;
+            /* background-color: rgba(250, 250, 250, 0.214); */
+            border-radius: 10px;
+            /* position: fixed; */
+            
+            
         }
         a{
-            padding-right: 20px;
+            padding-right: 40px;
             text-decoration: none;
-            color: white;
+            color: rgb(246, 246, 248);
+            background-color: rgba(242, 243, 244, 0.304);
+            padding: 15px;
+            border-radius: 30px;
+            margin: 30px;
+            
         }
         h1{
-            font-size: 70px;
+            font-size: 50px;
             margin-left: 30px;
+            color: white;
         }
         #index{
             background-color: aliceblue;
             padding: 30px;
         }
         #about{
-            background-color: rgb(2, 22, 79);
+            background-color: rgb(1, 14, 49);
             color: white;
-            padding: 30px;
+            padding: 50px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 25px;
         }
         #rent{
             background-color: rgb(244, 245, 246);
             padding: 30px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 25px;
         }
         footer{
             background-color: rgb(3, 3, 61);
             color: white;
             text-align: center;
             padding: 30px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         .home h2{
-            background-image: url("house1.png");
-            height: 500px;
+            /* background-image: url("house1.png"); */
             margin-top: 0px;
-            width: auto;
+            font-size: 80px;
+            text-align: center;
+            padding-bottom: 20px;
             
+        }
+        .home p{
+            background-color: rgba(0, 0, 7, 0.077);
+            padding: 30px;
+            border-radius: 30px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 30px;
         }
         .rent{
             display: flex;
             padding-left: 50px;
             margin-left: 50px;
+            gap: 30px;
+            background-color: rgba(1, 1, 31, 0.053);
+            border-radius: 30px;
         }
         .rent img{
             height: 500px;
@@ -62,11 +99,57 @@
         .rent p{
             margin-left: 30px;
         }
+        .about{
+            background-color: rgba(240, 248, 255, 0.367);
+            padding: 20px;
+            border-radius: 30px;
+        }
+        .mm{
+            display: flex;
+            gap: 10px;
+        }
+        #about h2{
+            text-align: center;
+        }
+        #rent h2{
+            text-align: center;
+        }
+        #aa{
+            margin: 0;
+            padding: 0;
+            
+        }
+        #aa img{
+            width: 300px;
+        }
+        #aa p{
+            margin-top: 100px;
+        }
+        #ww p{
+            margin-top: 100px;
+        }
+        #ww img{
+            width: 300px;
+        }
+        #ww,#aa{
+            height: 500px;
+            width: 80%;
+            margin-left: 150px;
+            padding: 30px;
+        }
+        #rent button{
+            padding: 10px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 25px;
+            background-color: rgb(1, 1, 50);
+            color: white;
+            border-radius: 30px;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Dwella</h1>
+        <h1>🏘️Dwella</h1>
         <nav>
             <a href="#index">Home</a>
             <a href="#about">About Us</a>
@@ -90,24 +173,26 @@
         <section id="about">
             <div>
                 <div>
-                    <h2>About Us</h2>
+                    <h2>About Us</h2><br><br>
                     <p>
                         At Dwella, we are committed to making house rentals simple, reliable, and accessible 
                         for everyone. We connect renters with quality homes while helping property owners find trustworthy 
                         tenants. Our goal is to create a smooth, transparent, and stress-free rental experience.
                     </p>
-                    <div>
-                        <div>
-                            <h3> Our Mission</h3>
+                    <div><br><br>
+                        <div class="mm">
+                        <div class="about">
+                            <h3> 🎯Our Mission</h3>
                             <p>Our mission is to provide safe, comfortable, and affordable rental homes through a
                                  trusted and easy-to-use platform. We strive to offer verified listings, clear information,
                                   and reliable support so our users can find a place they are proud to call home.</p>
-                        </div>
-                        <div>
-                            <h3>Our Vision</h3>
+                        </div><br><br>
+                        <div class="about">
+                            <h3>👁️Our Vision</h3>
                             <p>Our vision is to become a leading house rental platform known for trust, quality,
                                  and customer satisfaction. We aim to build strong communities by making housing 
                                  accessible and improving the rental experience for both tenants and property owners.</p>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -118,24 +203,24 @@
                 <h2>
                     Available Rents🏘️
                 </h2>
-                <div class="rent">
-                    <p>Cozy 2-bedroom home with modern kitchen and bright living spaces.</p>
+                <div class="rent" id="aa">
+                    <p>Cozy 2-bedroom home with modern kitchen and bright living spaces.<br><button>$3 000</button></p>
                     <img src="house1.png" alt="house1">
                 </div><br>
-                <div class="rent">
+                <div class="rent" id="ww">
                     <img src="house2.png" alt="house2">
-                    <p>Spacious family house near schools, shops, and public transport.</p>
+                    <p>Spacious family house near schools, shops, and public transport.<br><button>$2 500</button></p>
                 </div><br>
-                <div class="rent">
-                    <p>Stylish apartment with open layout and contemporary finishes</p>
+                <div class="rent" id="aa">
+                    <p>Stylish apartment with open layout and contemporary finishes<br><button>$2 950</button></p>
                     <img src="house3.png" alt="house3">
                 </div><br>
-                <div class="rent">
+                <div class="rent" id="ww">
                     <img src="house4.png" alt="house4">
-                    <p>Comfortable 3-bedroom rental with garden and parking space.</p>
+                    <p>Comfortable 3-bedroom rental with garden and parking space.<br><button>$4 200</button></p>
                 </div><br>
-                <div class="rent">
-                    <p>Elegant home in a quiet neighborhood, perfect for families or professionals.</p>
+                <div class="rent" id="aa">
+                    <p>Elegant home in a quiet neighborhood, perfect for families or professionals.<br><button>$1 900</button></p>
                     <img src="house5.png" alt="house5">
             </div>
         </section>

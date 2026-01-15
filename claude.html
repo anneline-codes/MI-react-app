@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dwella - Find Your Perfect Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            /* position: sticky; */
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+        }
+        
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        nav {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 12px 25px;
+            border-radius: 50px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 20px;
+            margin: 0 5px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+        
+        section {
+            padding: 80px 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        #index {
+            background: linear-gradient(to bottom, #f0f4ff, #ffffff);
+            text-align: center;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .home h2 {
+            font-size: 48px;
+            color: #667eea;
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .home p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        #about {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+        }
+        
+        #about h2 {
+            font-size: 40px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        #about p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .mission-vision div {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+        
+        .mission-vision div:hover {
+            transform: translateY(-5px);
+        }
+        
+        .mission-vision h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+        
+        #rent {
+            background: #f8f9fa;
+        }
+        
+        #rent h2 {
+            font-size: 40px;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #667eea;
+        }
+        
+        .rent-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .rent-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .rent-item.reverse {
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .rent-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+        
+        .rent-item p {
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+            color: #555;
+            padding: 20px;
+        }
+        
+        #contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        #contact h2 {
+            font-size: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .contact-btn {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        footer {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 50px 30px;
+        }
+        
+        footer p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        
+        footer p:first-child {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav {
+                padding: 10px 15px;
+            }
+            
+            nav a {
+                padding: 6px 12px;
+                font-size: 14px;
+            }
+            
+            .rent-item {
+                grid-template-columns: 1fr;
+            }
+            
+            .rent-item.reverse {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .home h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>🏠 Dwella</h1>
+            <nav>
+                <a href="#index">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#rent">On Sale</a>
+                <a href="#contact">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section id="index">
+            <div class="home">
+                <div>
+                    <h2>Welcome!! 😊</h2>
+                    <p>Welcome to Dwella — your trusted place to find comfortable, affordable homes for rent. Whether you're looking for a short stay or a long-term place to call home, we connect you with quality houses in safe, convenient locations. Start your journey today and move in with confidence.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="about">
+            <div>
+                <h2>About Us</h2>
+                <p>At Dwella, we are committed to making house rentals simple, reliable, and accessible for everyone. We connect renters with quality homes while helping property owners find trustworthy tenants. Our goal is to create a smooth, transparent, and stress-free rental experience.</p>
+                
+                <div class="mission-vision">
+                    <div>
+                        <h3>🎯 Our Mission</h3>
+                        <p>Our mission is to provide safe, comfortable, and affordable rental homes through a trusted and easy-to-use platform. We strive to offer verified listings, clear information, and reliable support so our users can find a place they are proud to call home.</p>
+                    </div>
+                    <div>
+                        <h3>👁️ Our Vision</h3>
+                        <p>Our vision is to become a leading house rental platform known for trust, quality, and customer satisfaction. We aim to build strong communities by making housing accessible and improving the rental experience for both tenants and property owners.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="rent">
+            <h2>Available Rentals 🏘️</h2>
+            
+            <div class="rent-item">
+                <p>Cozy 2-bedroom home with modern kitchen and bright living spaces.</p>
+                <img src="house1.png" alt="Cozy 2-bedroom home">
+            </div>
+            
+            <div class="rent-item reverse">
+                <img src="house2.png" alt="Spacious family house">
+                <p>Spacious family house near schools, shops, and public transport.</p>
+            </div>
+            
+            <div class="rent-item">
+                <p>Stylish apartment with open layout and contemporary finishes.</p>
+                <img src="house3.png" alt="Stylish apartment">
+            </div>
+            
+            <div class="rent-item reverse">
+                <img src="house4.png" alt="Comfortable 3-bedroom rental">
+                <p>Comfortable 3-bedroom rental with garden and parking space.</p>
+            </div>
+            
+            <div class="rent-item">
+                <p>Elegant home in a quiet neighborhood, perfect for families or professionals.</p>
+                <img src="house5.png" alt="Elegant home">
+            </div>
+        </section>
+        
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Ready to find your perfect home? Get in touch with us today!</p>
+            <a href="login.html" class="contact-btn">Login / Sign Up</a>
+        </section>
+    </main>
+    
+    <footer>
+        <address>
+            <p>Connect With Us</p>
+            <p>📷 Instagram: @Dwella-official</p> 
+            <p>📘 Facebook: Dwella-official</p>
+            <p>📞 Phone: +250 788 459 345</p>
+            <p>✉️ Email: dwellarenting@gmail.com</p>
+        </address>
+    </footer>
+</body>
+</html>
